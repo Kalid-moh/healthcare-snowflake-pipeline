@@ -5,7 +5,7 @@ ENV/
 env/
 env.bak/
 venv.bak/
-
+.env.example
 # Environment and secrets
 .env
 .env.local
