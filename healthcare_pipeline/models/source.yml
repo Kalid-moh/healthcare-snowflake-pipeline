@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: HEALTHCARE_DB
+    schema: BRONZE
+    description: "Raw landing / Bronze layer containing ingested healthcare records in Snowflake."
+    tables:
+      - name: patient_records
+        identifier: PATIENT_RECORDS
+        description: "Raw patient records with 55,500 admissions."

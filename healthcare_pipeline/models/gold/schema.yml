@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: dim_patient
+    description: "Patient dimension containing demographic information."
+    columns:
+      - name: patient_id
+        description: "Primary key for the patient."
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_doctor
+    description: "Doctor dimension table."
+    columns:
+      - name: doctor_id
+        description: "Surrogate key for the doctor."
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_hospital
+    description: "Hospital dimension table."
+    columns:
+      - name: hospital_id
+        description: "Surrogate key for the hospital facility."
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_insurance
+    description: "Insurance provider dimension table."
+    columns:
+      - name: insurance_id
+        description: "Surrogate key for the insurance provider."
+        data_tests:
+          - unique
+          - not_null
+
+  - name: fact_admissions
+    description: "Fact table recording patient hospital admissions, clinical diagnoses, and billing amounts."
+    columns:
+      - name: admission_id
+        description: "Surrogate key for the hospital admission."
+        data_tests:
+          - unique
+          - not_null
+      - name: patient_id
+        description: "Foreign key referencing dim_patient."
+      - name: doctor_id
+        description: "Foreign key referencing dim_doctor."
+      - name: hospital_id
+        description: "Foreign key referencing dim_hospital."
+      - name: insurance_id
+        description: "Foreign key referencing dim_insurance."
+
+  - name: vw_patient_admissions_analytics
+    description: "Consolidated reporting view joining admissions facts with patient, doctor, hospital, and insurance dimensions for BI dashboards and end users."
