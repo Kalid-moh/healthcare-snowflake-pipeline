@@ -4,3 +4,4 @@ dbt_packages/
 logs/
 .env
 healthcare_pipeline/profiles.yml
+healthcare_pipeline/.user.yml
