@@ -2,8 +2,6 @@
 target/
 dbt_packages/
 logs/
-
-# dbt secrets & profile credentials
-profiles.yml
-.user.yml
 .env
+healthcare_pipeline/profiles.yml
+healthcare_pipeline/.user.yml
