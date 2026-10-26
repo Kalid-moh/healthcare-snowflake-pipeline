@@ -1,22 +1,41 @@
-# Python virtual environment
+# ==============================================================================
+# Git Ignore - Healthcare Snowflake Pipeline
+# ==============================================================================
+
+# Python Virtual Environments
 .venv/
 venv/
 ENV/
 env/
 env.bak/
 venv.bak/
-.env.example
-# Environment and secrets
+
+# Environment Variables & Secrets
 .env
 .env.local
 .env.*.local
 *.pem
 *.key
 
-# Byte-compiled / optimized / DLL files
+# dbt Secrets & User Profiles (CRITICAL: Never commit passwords to GitHub)
+profiles.yml
+**/profiles.yml
+.user.yml
+**/.user.yml
+
+# dbt Build Artifacts, Dependencies & Logs
+target/
+**/target/
+dbt_packages/
+**/dbt_packages/
+logs/
+**/logs/
+
+# Byte-compiled / optimized / Python cache
 __pycache__/
 *.py[cod]
 *$py.class
+*.manifest
 
 # Distribution / packaging
 build/
@@ -35,11 +54,11 @@ wheels/
 .installed.cfg
 *.egg
 
-# Logs and databases
+# Database / SQLite / Temp files
 *.log
 *.sqlite3
 
-# IDE / Editor
+# IDE & Editor Configuration
 .vscode/
 .idea/
 *.swp

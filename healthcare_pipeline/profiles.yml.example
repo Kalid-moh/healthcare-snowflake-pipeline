@@ -1,0 +1,17 @@
+# Example dbt Profile for Healthcare Snowflake Pipeline
+# Copy this to 'profiles.yml' or '~/.dbt/profiles.yml' and insert your actual credentials.
+
+healthcare_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "YOUR_ACCOUNT_LOCATOR"       # e.g. EZIHCQR-MJ68029
+      user: "YOUR_SNOWFLAKE_USERNAME"
+      password: "YOUR_SNOWFLAKE_PASSWORD"
+      role: "ACCOUNTADMIN"
+      database: "HEALTHCARE_DB"
+      warehouse: "COMPUTE_WH"
+      schema: "gold"
+      threads: 4
+      client_session_keep_alive: False
