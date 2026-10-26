@@ -1,4 +1,4 @@
-
+# dbt compilation targets & packages
 target/
 dbt_packages/
 logs/

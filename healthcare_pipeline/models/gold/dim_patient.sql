@@ -1,10 +1,10 @@
 {{ config(materialized='table') }}
 
-SELECT DISTINCT
+SELECT 
     id AS patient_id,
     patient_name AS name,
     age,
     gender,
     blood_type
-FROM {{ ref('stg_patient_records') }}
-WHERE id IS NOT NULL
+FROM {{ ref('dim_patient_snapshot') }}
+WHERE dbt_valid_to is null
